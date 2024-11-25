@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    cursor: url('Group.png'), auto;
+}
+
+body {
+    font-family: 'DungGeunMo', sans-serif;
+    background-color: #000000;
+    color: #7CFC00;
+    margin: 150px;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+    background-color: #7CFC00;
+    position: fixed; /* 화면 상단에 고정 */
+    top: 0; /* 화면 상단에 딱 붙도록 설정 */
+    left: 0;
+    width: 100%; /* 전체 너비 */
+    height: 80px; /* 네비게이션 바 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10; /* 다른 콘텐츠보다 위에 표시되도록 설정 */
+    padding: 0; /* 불필요한 패딩 제거 */
+    margin-top: 0; /* 상단 여백을 0으로 설정 */
+}
+
+.navbar h1 {
+    color: #000000;
+    font-size: 45px;
+    margin-left: 20px;
+    font-weight: 100;
+}
+
+/* 네비게이션 아이콘 스타일 */
+.icon-nav {
+    list-style-type: none;
+    display: flex;
+    margin-right: 20px;
+    padding: 0;
+    gap: 20px; /* 아이콘 간격을 10px로 설정 (필요에 따라 조정 가능) */
+}
+
+/* 아이콘 이미지 스타일 */
+.icon-nav li a img {
+    width: 70px; /* 이미지 크기 */
+    height: 70px; /* 이미지 크기 */
+    margin: 0;  /* 불필요한 margin 제거 */
+    transform: translateY(40px);
+}
+
+/* 페이지 내용 영역 (네비게이션 바 아래) */
+.page-content {
+    margin-top: 100px; /* 네비게이션 바 높이만큼 여백을 주어 내용이 네비게이션 바 아래에 오도록 설정 */
+    padding: 20px; /* 페이지 내용에 여백을 추가 */
+}
+
+.categories {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 64px;
+    padding: 10px;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: #7CFC00;
+    text-decoration-thickness: 3px;
+    text-underline-position: under;
+    text-underline-offset: 5px;
+    cursor: pointer;
+    transform: scale(0.75);
+    transform-origin: top left; /* 페이지 왼쪽 상단을 기준으로 축소 */
+    width: 100%; /* 페이지 크기를 100%로 설정 */
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+ul[hidden] {
+    max-height: 0;
+}
+
+ul:not([hidden]) {
+    max-height: 1000px; /* 충분히 큰 값 */
+    transition: max-height 0.3s ease-in;
+    transform: scale(0.75);
+    transform-origin: top left; /* 페이지 왼쪽 상단을 기준으로 축소 */
+}
+
+li {
+    padding: 8px;
+    text-align: left;
+    position: relative;
+    display: block;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 36px;
+    transform: scale(0.75);
+    transform-origin: top left
+}
+
+.tooltip {
+    display: flex;
+    flex-direction: column; /* 텍스트 아래에 tooltiptext가 표시되도록 설정 */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 650px;
+    background-color: #555;
+    color: #fff;
+    padding: 5px 10px; /* 좌우 패딩을 추가하여 배경의 크기를 조정 */
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 24px;
+    margin-top: 8px; /* 텍스트 아래 간격 추가 */
+    text-align: center;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+

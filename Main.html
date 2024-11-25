@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Laboratory Animals</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+    <div class="albert2" id="movable">
+        <nav class="navbar">
+            <h1>Main Animal.exe</h1>
+            <ul class="icon-nav">
+                <li><a href="Home.html"><img src="minus.png" alt="Minus Icon"></a></li>
+                <li><a href="Home.html"><img src="close.png" alt="Close Icon"></a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="image-container">
+                <a href="albert2.html"><img src="albert2.png" class="image1"></a>
+            </div>
+            <div class="image-container">
+                <a href="Laika.html"><img src="laika2.png" class="image2"></a>
+            </div>
+            <div class="image-container">
+                <a href="Félicette.html"><img src="fe2.png" class="image3"></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const movable = document.getElementById("movable");
+
+        function centerElement() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const elementWidth = movable.offsetWidth * 0.75; // 스케일을 반영
+            const elementHeight = movable.offsetHeight * 0.75; // 스케일을 반영
+
+            const centerX = (windowWidth - elementWidth) / 2;
+            const centerY = (windowHeight - elementHeight) / 2;
+
+            movable.style.left = centerX + 'px';
+            movable.style.top = centerY + 'px';
+        }
+
+        window.onload = centerElement;
+        window.onresize = centerElement;
+
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        movable.onmousedown = function(event) {
+            isDragging = true;
+            offsetX = event.clientX - movable.getBoundingClientRect().left;
+            offsetY = event.clientY - movable.getBoundingClientRect().top;
+            movable.style.position = 'absolute';
+            movable.style.zIndex = 1000;
+        };
+
+        document.onmousemove = function(event) {
+            if (isDragging) {
+                movable.style.left = event.clientX - offsetX + 'px';
+                movable.style.top = event.clientY - offsetY + 'px';
+            }
+        };
+
+        document.onmouseup = function() {
+            isDragging = false;
+        };
+
+        movable.ondragstart = function() {
+            return false;
+        };
+    </script>
+</body>
+</html>
